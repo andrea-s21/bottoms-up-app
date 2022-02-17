@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Category Details</h1>
+<div class="section">
+<h1 class="grey-text text-darken-1">Category Details</h1>
 
 <div class="row">
   <div class="col s6 col-offset-3">
@@ -12,13 +13,14 @@
         {% for drink in category.drink_set.all %}
         <p>Drink: {{ drink.drink_name }}</p>
         {% empty %}
-        <h3>No Drinks have been added to this category yet</h3>
+        <p>No Drinks have been added to this category yet</p>
         {% endfor %}
 
-        <a href="{% url 'categories_delete' category.id %}">Delete</a>
-        <a href="{% url 'categories_update' category.id %}">Edit</a>
+        <a  class="waves-effect waves-light btn grey darken-3 white-text" href="{% url 'categories_delete' category.id %}">Delete</a>
+        <a  class="waves-effect waves-light btn grey darken-3 white-text" href="{% url 'categories_update' category.id %}">Edit</a>
       </div>
     </div>
   </div>
+</div>
 </div>
 {% endblock %}
