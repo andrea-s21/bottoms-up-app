@@ -8,9 +8,15 @@
     <div class="card">
       <div class="card-content">
         <span class="card-title">{{ category.name }}</span>
+    
+        {% for drink in category.drink_set.all %}
+        <p>Drink: {{ drink.drink_name }}</p>
+        {% empty %}
+        <h3>No Drinks have been added to this category yet</h3>
+        {% endfor %}
+
         <a href="{% url 'categories_delete' category.id %}">Delete</a>
         <a href="{% url 'categories_update' category.id %}">Edit</a>
-
       </div>
     </div>
   </div>

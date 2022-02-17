@@ -8,6 +8,9 @@
       <a href="{% url 'drink_detail' drink.id %}">View Cocktail</a>
       <div class="card-content">
         <p>Drink Name: {{ drink.drink_name }}</p>
+        {% for category in drink.categories.all %}
+        <p>Category: {{ category.name }}</p>
+        {% endfor %} 
         <img src="{{ drink.drink_pic }}" alt="">
       </div>
     </a>

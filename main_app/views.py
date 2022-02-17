@@ -194,4 +194,5 @@ def add_photo(request, drink_id):
 class PhotoDelete(DeleteView):
   model = Photo
   success_url = '/drinks/'
+ 
   
