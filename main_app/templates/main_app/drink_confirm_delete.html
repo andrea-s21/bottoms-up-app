@@ -9,9 +9,9 @@
 
   <form action="" method="POST">
     {% csrf_token %}
-    <button class="waves-effect waves-light btn grey darken-3 white-text" type="submit" value="Submit" class="btn">Yes,
+    <button class="waves-effect waves-light btn grey darken-4 white-text" type="submit" value="Submit" class="btn">Yes,
       Delete!</button>
-    <a class="waves-effect waves-light btn grey darken-3 white-text" href="{% url 'drink_detail' drink.id %}">Cancel</a>
+    <a class="waves-effect waves-light btn grey darken-4 white-text" href="{% url 'drink_detail' drink.id %}">Cancel</a>
   </form>
 </div>
 {% endblock %}

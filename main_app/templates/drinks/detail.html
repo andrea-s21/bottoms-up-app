@@ -21,11 +21,11 @@
       {% csrf_token %}
       <input id="photo-upload" type="file" name="photo-file">
       <br><br>
-      <button class="waves-effect waves-light btn grey darken-3 white-text" type="submit" value="Submit"
+      <button class="waves-effect waves-light btn grey darken-4 white-text" type="submit" value="Submit"
         class="btn">Upload Photo</button>
       <div class="card-action">
         {% for photo in drink.photo_set.all %}
-        <a class="waves-effect waves-light btn grey darken-3 white-text"
+        <a class="waves-effect waves-light btn grey darken-4 white-text"
           href="{% url 'photo_delete' photo.id %}">Delete</a>
         {% endfor %}
       </div>
@@ -46,7 +46,7 @@
         <div class="section">
           <form action="{% url 'remove_category' drink.id category.id %}" method="POST">
             {% csrf_token %}
-            <button class="waves-effect waves-light btn grey darken-3 white-text" type="submit"
+            <button class="waves-effect waves-light btn grey darken-4 white-text" type="submit"
               class="btn">Remove</button>
           </form>
           <hr>
@@ -68,7 +68,7 @@
         <div class="section">
           <form action="{% url 'add_category' drink.id category.id %}" method="post">
             {% csrf_token %}
-            <button class="waves-effect waves-light btn grey darken-3 white-text" type="submit" class="btn">Add</button>
+            <button class="waves-effect waves-light btn grey darken-4 white-text" type="submit" class="btn">Add</button>
           </form>
           <hr>
         </div>
@@ -81,7 +81,7 @@
   </div>
   <div class="section">
     <div class="card-action">
-      <a class="waves-effect waves-light btn grey darken-3 white-text" href="{% url 'drink_delete' drink.id %}">Delete
+      <a class="waves-effect waves-light btn grey darken-4 white-text" href="{% url 'drink_delete' drink.id %}">Delete
         Cocktail</a>
     </div>
   </div>
