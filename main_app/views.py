@@ -21,7 +21,9 @@ def about(request):
 @login_required
 def drinks_index(request):
   drinks = Drink.objects.all().order_by('-created_date')
+  drinks = request.user.drink_set.all()
   return render(request, 'drinks/index.html', {'drinks': drinks})
+  
 
 def signup(request):
   error_message = ''
@@ -140,21 +142,21 @@ class DrinkDelete(LoginRequiredMixin, DeleteView):
   model = Drink
   success_url = '/drinks/'
 
-class CategoryList(ListView):
+class CategoryList(LoginRequiredMixin, ListView):
   model = Category
 
-class CategoryDetail(DetailView):
+class CategoryDetail(LoginRequiredMixin, DetailView):
   model = Category
 
-class CategoryCreate(CreateView):
+class CategoryCreate(LoginRequiredMixin, CreateView):
   model = Category
   fields = '__all__'
 
-class CategoryUpdate(UpdateView):
+class CategoryUpdate(LoginRequiredMixin, UpdateView):
   model = Category
   fields = ['name']
 
-class CategoryDelete(DeleteView):
+class CategoryDelete(LoginRequiredMixin, DeleteView):
   model = Category
   success_url =  '/categories/'
 
