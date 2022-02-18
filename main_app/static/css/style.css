@@ -22,3 +22,23 @@ img.logo {
   width: 300px;
   height: 300px;
 }
+
+.sidenav {
+  background-color: white;
+}
+
+#photo-upload {
+  width: 200px;
+}
+
+#survey {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 15px;
+}
+
+#background {
+  width: 2000px;
+  height: 600px;
+}
+
+

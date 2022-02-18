@@ -65,6 +65,7 @@ def generate_drink(request):
         index_list3.append(id)
 
     drink_id = random.choice(index_list3)
+    print(drink_id)
     final_drink_render = requests.get('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + drink_id ).json()
 
     drink_name = final_drink_render['drinks'][0]['strDrink']
@@ -125,6 +126,7 @@ def drink_detail(request, drink_id):
     ingredients = str(', '.join(ingredients_list))
     category_ids = drink.categories.all().values_list('id')
     categories = Category.objects.exclude(id__in=category_ids)
+    print(ingredients)  
     return render(request, 'drinks/detail.html', {
         'drink': drink, 
         'ingredients' : ingredients,
@@ -171,13 +173,17 @@ def unassoc_category(request, drink_id, category_id):
 
 @login_required
 def add_photo(request, drink_id):
+  # photo-file wil be the "name" attribute of the input
   photo_file = request.FILES.get('photo-file', None)
   if photo_file:
     s3 = boto3.client('s3')
+    # need a unique "key" for s3 
+    # need the same file extension as well
     key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
     try: 
       bucket = os.environ['S3_BUCKET']
       s3.upload_fileobj(photo_file, bucket, key)
+      # build the full url string
       url = f"{os.environ['S3_BASE_URL']}{bucket}/{key}"
       Photo.objects.create(url=url, drink_id=drink_id)
     except Exception as e:
