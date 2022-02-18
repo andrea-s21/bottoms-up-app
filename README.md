@@ -1,5 +1,5 @@
 # BOTTOMS UP!
-###### Bottoms Up is an app that helps you find a drink for any occasion!  With our unique "Alcohol-rhythm,"   we find the best drink for your day and mood!  Ease your mind with a stress-free app that lets you save your perfectly curated drink for quick and easy access.  like we always say, "When life throws lemons catch them and make a cocktail!"
+###### Bottoms Up is an app that helps you find a drink for any occasion!  With our unique "Alcoholgorhythm,"   we find the best drink for your day and mood!  Ease your mind with a stress-free app that lets you save your perfectly curated drink for quick and easy access.  like we always say, "When life throws lemons catch them and make a cocktail!"
 
 ## Screenshots
 
