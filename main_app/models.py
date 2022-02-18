@@ -92,7 +92,7 @@ class Photo(models.Model):
   drink = models.ForeignKey(Drink, on_delete=models.CASCADE)
 
   def get_absolute_url(self):
-        return reverse('drink_details')
+        return reverse('drinks_index')
 
   def __str__(self):
     return f'Photo for drink_id: {self.drink_id} @{self.url}'
