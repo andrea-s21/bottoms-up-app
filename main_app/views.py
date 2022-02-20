@@ -8,6 +8,7 @@ from django.views.generic import ListView, DetailView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin 
 from .models import ANSWERS1, Category, Drink, Ingredient, Survey, Photo
 from django.contrib.auth.mixins import LoginRequiredMixin 
 from django.contrib.auth.models import User
@@ -41,6 +42,7 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
+@login_required
 def generate_drink(request):
     ALC_LOOKUP = {'V': 'vodka', 'G': 'gin', 'R': 'rum', 'T': 'tequila'}
     alc_type = ALC_LOOKUP[request.POST['liquor_pref']]
@@ -99,6 +101,7 @@ def generate_drink(request):
         'drink_ingredient8': drink_ingredient8,
     })
 
+@login_required
 def add_drink(request):
   data = {key: val for key, val in request.POST.items()}
   drink = Drink.objects.filter(drink_id=data['drink_id'])
@@ -123,6 +126,7 @@ def add_drink(request):
 
   return redirect('index')
 
+@login_required
 def drink_detail(request, drink_id):
     drink = Drink.objects.get(id=drink_id)
     ingredients_list = list(drink.ingredients.all().values_list('ingredient_name', flat=True))
