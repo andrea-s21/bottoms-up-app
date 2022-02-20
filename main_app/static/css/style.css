@@ -26,3 +26,8 @@ img.circle.responsive-img {
 img.responsive-img {
   width: 300vh;
 }
+
+#drink-img {
+  width: 300px;
+  height: 300px;
+}

@@ -1,5 +1,4 @@
 import os
-from unicodedata import category 
 import boto3
 import uuid
 from django.shortcuts import render, redirect
@@ -13,7 +12,6 @@ from .models import ANSWERS1, Category, Drink, Ingredient, Survey, Photo
 from django.contrib.auth.mixins import LoginRequiredMixin 
 from django.contrib.auth.models import User
 import requests, random 
-# Create your views here.
 
 def home(request):
   return render(request, 'home.html')
@@ -23,7 +21,7 @@ def about(request):
 
 @login_required
 def drinks_index(request):
-  drinks = Drink.objects.all().order_by('-created_date')
+  drinks = Drink.objects.all().order_by('created_date')
   drinks = request.user.drink_set.all()
   return render(request, 'drinks/index.html', {'drinks': drinks})
   
@@ -139,7 +137,6 @@ def drink_detail(request, drink_id):
         'categories' : categories,
     })
 
-# Class-Based View (CBV)
 class SurveyForm(CreateView):
   model = Survey
   fields = ['liquor_pref', 'q1', 'q2', 'q3']

@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="section">
-  <h1 class="grey-text text-darken-3">Drink List</h1>
+  <h1 class="grey-text text-darken-4">Drink List</h1>
 
   {% for drink in drinks %}
   <div class="row">
@@ -16,7 +16,7 @@
           <strong>
             <p>Categories:</p>
           </strong>
-          {% for category in drink.categories.all %}
+          {% for category in category_list %}
           <p>{{ category.name }}</p>
           {% endfor %}
         </div>

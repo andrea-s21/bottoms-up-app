@@ -5,9 +5,9 @@
   <div class="section">
     <h1 class="grey-text text-darken-3">{{ drink.drink_name }}</h1>
     <img class="card-panel responsive-img" src="{{ drink.drink_pic }}" alt="">
-    <h4 class="grey-text text-darken-3">Instructions:</h4>
+    <h4 class="grey-text text-darken-4">Instructions:</h4>
     <p> {{ drink.drink_instructions }}</p>
-    <h4 class="grey-text text-darken-3">Ingredients:</h4>
+    <h4 class="grey-text text-darken-4">Ingredients:</h4>
     <p>{{ ingredients }}</p>
   </div>
   <hr>
@@ -38,7 +38,7 @@
   <hr>
   <div class="row">
     <div class="col s6">
-      <h4 class="grey-text text-darken-1">Assigned Categories</h4>
+      <h4 class="grey-text text-darken-4">Assigned Categories</h4>
       {% if drink.categories.count %}
       {% for category in drink.categories.all %}
       <div class="section">
@@ -58,7 +58,7 @@
       {% endif %}
     </div>
     <div class="col s6">
-      <h4 class="grey-text text-darken-1">Available Categories</h4>
+      <h4 class="grey-text text-darken-4">Available Categories</h4>
       {% if categories.count %}
       {% for category in categories.all %}
       <div class="section">
