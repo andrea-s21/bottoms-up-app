@@ -60,6 +60,8 @@ class Drink(models.Model):
     def __str__(self):
         return f'{self.drink_name} ({self.drink_id})'
 
+    class Meta:
+        ordering = ['-created_date']
 
 class Survey(models.Model):
     liquor_pref = models.CharField('What is your preferred liquor?',

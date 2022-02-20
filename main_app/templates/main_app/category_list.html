@@ -3,10 +3,10 @@
 
 <div class="container center-align">
     <div class="section">
-        <h1 class="grey-text text-darken-3">Category List</h1>
+        <h1 class="grey-text text-darken-4">Category List</h1>
             {% for category in category_list %}
             <div class="card-content white-text">
-                <h4 class="card-title grey-text text-darken-1">{{ category }}</h4>
+                <h4 class="card-title grey-text text-darken-4">{{ category }}</h4>
                 <form action="{% url 'categories_detail' category.id %}">
                     {% csrf_token %}
                     <button class="waves-effect waves-light btn grey darken-4 white-text" type="submit">Category
