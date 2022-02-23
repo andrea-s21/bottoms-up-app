@@ -149,12 +149,20 @@ class CategoryList(LoginRequiredMixin, ListView):
   model = Category
   template_name ='category_list.html'
 
+  def get_queryset(self):
+    return self.request.user.category_set.all()
+
 class CategoryDetail(LoginRequiredMixin, DetailView):
   model = Category
 
 class CategoryCreate(LoginRequiredMixin, CreateView):
   model = Category
-  fields = '__all__'
+  fields = ['name']
+
+  def form_valid(self, form):
+    form.instance.user = self.request.user 
+    return super().form_valid(form)
+
 
 class CategoryUpdate(LoginRequiredMixin, UpdateView):
   model = Category
