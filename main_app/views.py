@@ -130,7 +130,7 @@ def drink_detail(request, drink_id):
     ingredients_list = list(drink.ingredients.all().values_list('ingredient_name', flat=True))
     ingredients = str(', '.join(ingredients_list))
     category_ids = drink.categories.all().values_list('id')
-    categories = Category.objects.exclude(id__in=category_ids)
+    categories = request.user.category_set.exclude(id__in=category_ids)
     return render(request, 'drinks/detail.html', {
         'drink': drink, 
         'ingredients' : ingredients,

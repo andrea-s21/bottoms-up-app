@@ -16,7 +16,7 @@
           <strong>
             <p>Categories:</p>
           </strong>
-          {% for category in category_list %}
+          {% for category in drink.categories.all %}
           <p>{{ category.name }}</p>
           {% endfor %}
         </div>
